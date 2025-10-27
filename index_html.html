@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - محمد إبراهيم البرشي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #9b59b6;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        body {
+            background: #f5f5f5;
+            padding: 10px;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        /* تصميم الصفحات */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 10px auto;
+            padding: 20mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            page-break-after: always;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        /* الهيدر المشترك لجميع الصفحات */
+        .page-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* معلومات الاتصال */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* الأقسام */
+        .section {
+            margin-bottom: 20px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        /* الهدف المهني */
+        .objective {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+            font-size: 14px;
+            border-right: 4px solid var(--secondary);
+            text-align: justify;
+        }
+        
+        /* الخبرات العملية */
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid var(--secondary);
+        }
+        
+        .job-title {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .date {
+            color: #7f8c8d;
+            font-size: 12px;
+            margin-bottom: 10px;
+            background: var(--light);
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+        
+        .achievements {
+            list-style-type: none;
+            padding-right: 15px;
+        }
+        
+        .achievements li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-right: 18px;
+            line-height: 1.4;
+            font-size: 13px;
+        }
+        
+        .achievements li:before {
+            content: "▸";
+            color: #e74c3c;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        
+        /* المشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .project-card {
+            background: white;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            border-right: 3px solid var(--secondary);
+        }
+        
+        .project-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        
+        .project-date {
+            color: #7f8c8d;
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+        
+        .project-desc {
+            color: #5d6d7e;
+            font-size: 12px;
+            line-height: 1.3;
+        }
+        
+        /* المهارات */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, var(--secondary), #2980b9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        /* أشرطة التقدم */
+        .progress-container {
+            margin-bottom: 12px;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: var(--light);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 3px;
+        }
+        
+        /* الدورات التدريبية */
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .course-category {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        
+        .course-category h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .course-list {
+            list-style-type: none;
+        }
+        
+        .course-list li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-right: 15px;
+            line-height: 1.3;
+            font-size: 12px;
+        }
+        
+        .course-list li:before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        
+        /* خطة التطوير */
+        .development-plan {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 15px;
+            border-radius: 6px;
+            border-right: 3px solid var(--warning);
+        }
+        
+        .plan-item {
+            margin-bottom: 8px;
+            padding-right: 18px;
+            position: relative;
+            font-size: 13px;
+        }
+        
+        .plan-item:before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* اللغات */
+        .languages {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .language-item {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        
+        /* المراجع */
+        .references {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-style: italic;
+            font-size: 14px;
+        }
+        
+        /* المعلومات الشخصية */
+        .personal-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        
+        /* زر الطباعة */
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* تحسينات الطباعة */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .page {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm;
+            }
+            
+            .print-btn {
+                display: none;
+            }
+            
+            /* منع تقسيم العناصر بين الصفحات */
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .experience-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            /* الحفاظ على الألوان عند الطباعة */
+            * {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+        
+        /* الترقيم */
+        .page-number {
+            position: absolute;
+            bottom: 10mm;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> طباعة السيرة الذاتية
+    </button>
+
+    <!-- الصفحة 1 -->
+    <div class="page">
+        <div class="page-header">
+            <div class="name">محمد إبراهيم البرشي</div>
+            <div class="title">خبير إدارة العمليات والتحول الرقمي</div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0946507954 / +218926846499</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>albarshi.96@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>طرابلس – سيدي المصري / بنغازي – سيدي خليفة</span>
+                </div>
+            </div>
+            
+            <div class="personal-info">
+                <div class="info-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>بكالوريوس إدارة أعمال</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-user"></i>
+                    <span>أعزب</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-flag"></i>
+                    <span>ليبي</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-birthday-cake"></i>
+                    <span>مواليد 16 ديسمبر 1996</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">الهدف المهني</h2>
+            <div class="objective">
+                أسعى لتولي دور قيادي في إدارة العمليات داخل مؤسسة ديناميكية، أساهم فيها بخبرتي التي تزيد عن 8 سنوات في تحسين سير العمل، وتطبيق أنظمة ERP، وتحقيق الكفاءة التشغيلية. أتميز بقدرتي على التنسيق بين الأقسام، وتحليل البيانات لاتخاذ قرارات استراتيجية، وبناء فرق عمل فعالة تعزز القدرة التنافسية للمؤسسة.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">الخبرات العملية</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">مسؤول دعم العمليات وتوثيق الدورة المستندية</div>
+                <div class="company">شركة الاستشاري – خدمات عن بعد وعند الطلب</div>
+                <div class="date">2022 – حتى الآن</div>
+                <ul class="achievements">
+                    <li>قيادة التحول الرقمي في إدارة المستندات وربطها بأنظمة الموارد</li>
+                    <li>تصميم دورة مستندية قلصت زمن المعالجة بنسبة 45%</li>
+                    <li>تطوير مؤشرات أداء تشغيلية حسّنت جودة التنفيذ</li>
+                    <li>تدريب الفرق على التوثيق الرقمي، مما رفع الالتزام بالمعايير إلى 95%</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">مسؤول عمليات وتموين – نظام SAP</div>
+                <div class="company">شركة الينابيع الأولى – صنوان القابضة</div>
+                <div class="date">2023 – 2025</div>
+                <ul class="achievements">
+                    <li>الحفاظ على سلامة واستمرارية الدورة المستندية من الإنشاء وحتى الأرشفة</li>
+                    <li>تنفيذ طلبات العملاء بدقة وفي الوقت المحدد، مما ساهم في رفع مستوى رضا العملاء</li>
+                    <li>معالجة المشكلات التشغيلية بشكل فوري، وتقليص زمن الاستجابة بنسبة 40%</li>
+                    <li>إعداد الفواتير النهائية ومراجعتها وفق نظام SAP، مما رفع دقة الفوترة إلى 98%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="page-number">الصفحة 1 من 4</div>
+    </div>
+
+    <!-- الصفحة 2 -->
+    <div class="page">
+        <div class="page-header">
+            <div class="name">محمد إبراهيم البرشي</div>
+            <div class="title">خبير إدارة العمليات والتحول الرقمي</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">الخبرات العملية (تابع)</h2>
+            
+            <div class="experience-item">
+                <div class="job-title">مدير قسم الاستلامات</div>
+                <div class="company">مركز توزيع جيان – صنوان القابضة</div>
+                <div class="date">2022 – 2023</div>
+                <ul class="achievements">
+                    <li>إدارة عمليات الاستلام والتخزين في بيئة تشغيلية عالية الحركة</li>
+                    <li>رفع كفاءة الفريق بنسبة 50% عبر إعادة توزيع المهام</li>
+                    <li>تقليص نسبة الأخطاء في الجرد إلى أقل من 2%</li>
+                    <li>إعداد تقارير تفصيلية ساعدت الإدارة المالية في ضبط المصروفات</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">مدير إدارة الخدمات والحركة</div>
+                <div class="company">شركة باكر للتجارة الإلكترونية Presto Eat</div>
+                <div class="date">2020 – 2022</div>
+                <ul class="achievements">
+                    <li>تأسيس قسم الخدمات والحركة من الصفر</li>
+                    <li>توظيف وتدريب أكثر من 25 موظفاً</li>
+                    <li>تقليص تكاليف الصيانة بنسبة 20%</li>
+                    <li>تحسين كفاءة التوصيل بنسبة 35%</li>
+                    <li>تقديم تقارير مالية دقيقة دعمت قرارات التوسع</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">المشاريع الخاصة</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-name">شركة سلاش ليبيا للنظافة العامة</div>
+                    <div class="project-date">2016 – 2018</div>
+                    <div class="project-desc">مشروع ريادي في مجال خدمات النظافة العامة</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">تطبيق وفرلي – ليبيا للوساطة والخدمات</div>
+                    <div class="project-date">2020</div>
+                    <div class="project-desc">تطبيق وساطة لتقديم الخدمات للمستهلكين</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">منصة كرية لخدمات الشحن اللوجستية</div>
+                    <div class="project-date">2019 – 2022</div>
+                    <div class="project-desc">منصة رقمية لتسهيل خدمات الشحن واللوجستيات</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">منصة "دَوّر لي"</div>
+                    <div class="project-date">2023 – مستمر</div>
+                    <div class="project-desc">مشروع رقمي وسيط لبناء الثقة بين المستخدمين وتسهيل الوصول للخدمات في السوق الليبي</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page-number">الصفحة 2 من 4</div>
+    </div>
+
+    <!-- الصفحة 3 -->
+    <div class="page">
+        <div class="page-header">
+            <div class="name">محمد إبراهيم البرشي</div>
+            <div class="title">خبير إدارة العمليات والتحول الرقمي</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">المهارات التقنية</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>أنظمة ERP</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">SAP Business One</span>
+                        <span class="skill-tag">IFS</span>
+                        <span class="skill-tag">Odoo</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>برمجة وتطوير</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Android Studio</span>
+                        <span class="skill-tag">PowerShell</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>إدارة البيانات</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">MS Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">المهارات الإدارية</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>إدارة المخزون</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>دورة حياة المستندات</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>تحليل البيانات</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skills-list" style="margin-top: 10px;">
+                        <span class="skill-tag">إدخال وتحديث بيانات العملاء والموردين والمنتجات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">المهارات الشخصية</h2>
+            <div class="skills-list">
+                <span class="skill-tag">التحدث والإلقاء بثقة</span>
+                <span class="skill-tag">التحليل والتخطيط الاستراتيجي</span>
+                <span class="skill-tag">التفاوض وبناء العلاقات التعاقدية</span>
+                <span class="skill-tag">الذكاء الاجتماعي والمهني</span>
+                <span class="skill-tag">التعلم الذاتي المنظم</span>
+                <span class="skill-tag">الانضباط في تطوير المهارات</span>
+            </div>
+        </div>
+        
+        <div class="page-number">الصفحة 3 من 4</div>
+    </div>
+
+    <!-- الصفحة 4 -->
+    <div class="page">
+        <div class="page-header">
+            <div class="name">محمد إبراهيم البرشي</div>
+            <div class="title">خبير إدارة العمليات والتحول الرقمي</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">الدورات التدريبية</h2>
+            <div class="courses-container">
+                <div class="course-category">
+                    <h4>حاسب آلي وبرمجة</h4>
+                    <ul class="course-list">
+                        <li>تصميم الاستبيانات الإلكترونية</li>
+                        <li>مليون مبرمج عربي Android Developer Track</li>
+                        <li>Kotlin on Android</li>
+                        <li>برمجة تطبيقات Android باستخدام Android</li>
+                        <li>برمجة تطبيقات iOS & Android باستخدام Flutter</li>
+                        <li>التعامل مع جدار الحماية</li>
+                        <li>SQL</li>
+                        <li>WordPress</li>
+                        <li>MS Office</li>
+                    </ul>
+                </div>
+                <div class="course-category">
+                    <h4>اقتصاد وإدارة أعمال</h4>
+                    <ul class="course-list">
+                        <li>حل المشكلات واتخاذ القرارات</li>
+                        <li>بناء الهياكل واللوائح التنظيمية</li>
+                        <li>إدارة رأس المال البشري</li>
+                        <li>المحاسبة لغير المحاسبين</li>
+                        <li>إنشاء الميزانية العمومية</li>
+                        <li>إدارة المشاريع الاحترافية (PMP)</li>
+                        <li>إدارة الخلاف والتغيير</li>
+                        <li>التنمية البشرية</li>
+                        <li>دبلوم إدارة الموارد البشرية</li>
+                        <li>دبلوم الإدارة الإستراتيجية</li>
+                        <li>إدارة القيمة المكتسبة</li>
+                        <li>تحليل الشخصيات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">اللغات</h2>
+            <div class="languages">
+                <div class="language-item">العربية: ممتاز (كتابة وتحدثًا)</div>
+                <div class="language-item">الإنجليزية: جيد جدًا (كتابة ومراسلة باستخدام أدوات الترجمة والذكاء الاصطناعي)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">خطة التطوير القادمة</h2>
+            <div class="development-plan">
+                <div class="plan-item">استكمال تعلم Dart وFlutter</div>
+                <div class="plan-item">بدء مسار Full Stack Developer (HTML, CSS, JavaScript, Bootstrap, JQuery, Python, MySQL, AJAX)</div>
+                <div class="plan-item">ربط التعلم بمراحل تطوير مشروع "دَوّر لي"</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">المراجع</h2>
+            <div class="references">
+                <p>متوفرة عند الطلب</p>
+            </div>
+        </div>
+        
+        <div class="page-number">الصفحة 4 من 4</div>
+    </div>
+
+    <script>
+        // ضبط الصفحات للطباعة
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثيرات بسيطة للعناصر
+            const experienceItems = document.querySelectorAll('.experience-item');
+            experienceItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease';
+                    item.style.opacity = '1';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
